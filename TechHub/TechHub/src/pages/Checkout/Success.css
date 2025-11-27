@@ -1,0 +1,99 @@
+.success-page {
+  min-height: 100vh;
+  background: var(--bg-page);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-container {
+  max-width: 600px;
+  width: 100%;
+  padding: var(--spacing-xl);
+}
+
+.success-content {
+  background: var(--neutral-white);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-3xl);
+  box-shadow: var(--shadow-subtle);
+  text-align: center;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-blue);
+  color: var(--neutral-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0 auto var(--spacing-xl);
+}
+
+.success-title {
+  font-size: var(--font-size-h1);
+  font-weight: 700;
+  color: var(--neutral-text-dark);
+  margin-bottom: var(--spacing-lg);
+}
+
+.success-message {
+  font-size: var(--font-size-body);
+  color: var(--neutral-dark-gray);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+}
+
+.success-info {
+  font-size: var(--font-size-body);
+  color: var(--neutral-text-light);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.success-actions {
+  display: flex;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.view-orders-btn,
+.continue-shopping-btn {
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-standard);
+}
+
+.view-orders-btn {
+  background: var(--primary-blue);
+  color: var(--neutral-white);
+}
+
+.view-orders-btn:hover {
+  background: var(--primary-dark-blue);
+  box-shadow: var(--shadow-blue-tinted);
+  transform: translateY(-2px);
+}
+
+.continue-shopping-btn {
+  background: transparent;
+  color: var(--primary-blue);
+  border: 1px solid var(--primary-blue);
+}
+
+.continue-shopping-btn:hover {
+  background: var(--bg-card-light);
+  border-color: var(--primary-dark-blue);
+  color: var(--primary-dark-blue);
+}
+
+
+
+
+

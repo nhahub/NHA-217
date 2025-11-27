@@ -1,0 +1,123 @@
+.special-order-page {
+  background: var(--bg-page);
+  padding: var(--spacing-xxl) var(--spacing-xl);
+}
+
+.special-order-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--neutral-white);
+  border-radius: var(--radius-xxl);
+  box-shadow: var(--shadow-medium);
+  padding: calc(var(--spacing-xxl) + 20px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.special-order-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin: 0;
+}
+
+.special-order-subtitle {
+  margin: 0;
+  color: var(--neutral-dark-gray);
+  line-height: 1.6;
+}
+
+.special-order-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding: 20px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--neutral-light-gray);
+}
+
+.form-grid {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.form-grid.two-column {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.form-field span {
+  font-weight: 600;
+  color: var(--neutral-text-dark);
+}
+
+.form-field input,
+.form-field textarea {
+  border: 1px solid var(--neutral-medium-gray);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-body);
+  width: 100%;
+}
+
+.form-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.products-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.product-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.product-row .flex-grow {
+  grid-column: span 2;
+}
+
+.special-order-submit {
+  align-self: flex-start;
+  background: var(--primary-blue);
+  color: var(--neutral-white);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-standard), transform var(--transition-standard);
+}
+
+.special-order-submit:hover:not(:disabled) {
+  background: var(--primary-dark-blue);
+  transform: translateY(-1px);
+}
+
+.special-order-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .product-row {
+    grid-template-columns: 1fr;
+  }
+
+  .product-row .flex-grow {
+    grid-column: span 1;
+  }
+}
+
+
