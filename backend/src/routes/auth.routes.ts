@@ -1,0 +1,36 @@
+import express from 'express';
+import { register, login, logout } from '../controllers/auth.controller';
+import { z } from 'zod';
+
+const router = express.Router();
+
+// Validation schemas (can be moved to separate file)
+const registerSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6),
+  name: z.string().min(2),
+});
+
+const loginSchema = z.object({
+  email: z.string().email(),
+  password: z.string(),
+});
+
+const validate = (schema: z.ZodSchema) => (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  try {
+    schema.parse(req.body);
+    next();
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      res.status(400).json({ status: 'fail', errors: (error as z.ZodError).errors });
+    } else {
+      next(error);
+    }
+  }
+};
+
+router.post('/register', validate(registerSchema), register);
+router.post('/login', validate(loginSchema), login);
+router.post('/logout', logout);
+
+export default router;

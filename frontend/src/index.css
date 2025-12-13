@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 25% 97%; /* Very soft indigo tint */
+    --foreground: 225 40% 10%; /* Deep indigo-black */
+    --card: 0 0% 100%;
+    --card-foreground: 225 40% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 40% 10%;
+    --primary: 230 70% 55%; /* Professional Indigo/Blue */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 225 20% 94%;
+    --secondary-foreground: 225 40% 10%;
+    --muted: 225 20% 94%;
+    --muted-foreground: 225 15% 45%;
+    --accent: 225 20% 94%;
+    --accent-foreground: 225 40% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 225 20% 90%;
+    --input: 225 20% 90%;
+    --ring: 230 70% 55%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 225 40% 5%; /* Very dark indigo */
+    --foreground: 210 40% 98%;
+    --card: 225 40% 7%;
+    --card-foreground: 210 40% 98%;
+    --popover: 225 40% 7%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 230 70% 60%; /* Lighter indigo for dark mode */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 225 30% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 225 30% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 225 30% 15%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 225 30% 15%;
+    --input: 225 30% 15%;
+    --ring: 230 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full;
+  transition: background-color 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/50;
+}
+
+/* Custom Animations */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes smooth-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+}
+
+.animate-smooth-pulse {
+  animation: smooth-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient {
+  animation: gradient-shift 3s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* Smooth transitions for all interactive elements */
+@layer components {
+  button, a, input, textarea, select {
+    @apply transition-all duration-200 ease-out;
+  }
+}
